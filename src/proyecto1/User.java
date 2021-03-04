@@ -5,10 +5,10 @@
  */
 package proyecto1;
 
-/**
- *
- * @author Luciano Xiquín
- */
+
 public class User {
+    protected String Name;
+    protected String Password;
+
     
 }

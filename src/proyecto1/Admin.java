@@ -9,6 +9,19 @@ package proyecto1;
  *
  * @author Luciano Xiquín
  */
-public class Admin {
+public class Admin extends User {
+
+    public Admin() {
+        Name = "Admin";
+        Password = "sudo";
+    }
     
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
 }

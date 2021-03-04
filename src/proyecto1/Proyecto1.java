@@ -15,7 +15,7 @@ public class Proyecto1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        GUI gui = new GUI();
+        Login gui = new Login();
         gui.launch();
     }
     
