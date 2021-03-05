@@ -13,14 +13,16 @@ public class Admin extends User {
 
     public Admin() {
         Name = "Admin";
-        Password = "sudo";
+        Password = "admin";
     }
     
 
+    @Override
     public String getName() {
         return Name;
     }
 
+    @Override
     public String getPassword() {
         return Password;
     }

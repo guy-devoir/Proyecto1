@@ -5,10 +5,13 @@
  */
 package proyecto1;
 
+import GUIs.AdminGUI;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,26 +25,31 @@ import javax.swing.JTextField;
  * @author Luciano Xiquín
  */
 public class Login implements ActionListener{
-    JFrame frame = new JFrame();
+    JFrame frame = new JFrame("Login");
+    
     JPanel panel = new JPanel();
+    //Campo del usuario
     JLabel label = new JLabel("Usuario: ");
+    JTextField text_u = new JTextField();
+    //Campo de la contraseña
     JLabel PassLabel = new JLabel("Contraseña: ");
     JPasswordField pass = new JPasswordField();
     JButton boton = new JButton("Aceptar");
-    JTextField text_u = new JTextField();
-
+    //Bottom half
+    JLabel error = new JLabel("Ingrese un usuario");
+    
     Admin admin = new Admin();
 
     public void launch() {
         //Marco
-        System.out.println(admin.getPassword());
+        /*System.out.println(admin.getPassword());
         System.out.println(admin.getName());
+        */
         frame.add(panel, BorderLayout.CENTER);
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setTitle("Login");
-        frame.setSize(300, 200);
+        
+        frame.setSize(300, 220);
         /*
         Text Field de Usuario
         
@@ -65,6 +73,9 @@ public class Login implements ActionListener{
         panel.add(boton);
         boton.setBounds(1, 8, 10, 1);
         boton.addActionListener(this);
+        panel.add(error);
+        error.setBounds(1, 10, 10, 1);
+        
         
 
         frame.setVisible(true);
@@ -74,10 +85,15 @@ public class Login implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String user = text_u.getText();
         String password = pass.getText();
+
         if (user.equals(admin.getName()) && admin.getPassword().equals(password)) {
-            System.out.println("success");
+            AdminGUI guiadmin = new AdminGUI();
+            guiadmin.launch();
+            frame.setVisible(false);
+            
         }else{
-            System.out.println("...");
+            error.setForeground(Color.red);
+            error.setText("Usuario no válido");
         }
 
     }
