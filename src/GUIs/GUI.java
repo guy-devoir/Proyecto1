@@ -5,6 +5,7 @@
  */
 package GUIs;
 
+import info.Almacenar;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -12,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,11 +26,19 @@ import javax.swing.JTextField;
  * @author Luciano Xiquín
  */
 public class GUI {
+    public Almacenar desu = new Almacenar();
     JFrame frame = new JFrame();
     JFrame out = new JFrame();
     JPanel panel = new JPanel();
     JButton regresar = new JButton("Cerrar Sesión");
     JLabel label = new JLabel();
+    JTextField codigo = new JTextField();
+    JTextField nombre = new JTextField();
+    JTextField apellido = new JTextField();
+    JTextField correo = new JTextField();
+    JTextField contraseña = new JTextField();
+    
+    
     
     public void launch(){
         Tabs demo = new Tabs();

@@ -16,6 +16,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import static java.lang.System.out;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -31,37 +32,22 @@ import proyecto1.Login;
 public class TabsAdmin extends Tabs implements ActionListener{
 @Override
 public void addComponentToPane(Container pane) {
+    TabEst est = new TabEst();
         JTabbedPane tabbedPane = new JTabbedPane();
 
-        JPanel card1 = new JPanel() {
-            //Esto se queda aqui
-            @Override
-            public Dimension getPreferredSize() {
-                Dimension size = super.getPreferredSize();
-                size.width += WW;
-                return size;
-            }
-        };
-        card1.setLayout(new GridLayout(2,2));
-        card1.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        card1.add(new JButton("Crear"));
-        /*
-        Action Listener
-        new JButton(new AbstractAction("Cerrar Sesión") {
+    JPanel card1 = new JPanel() {
+        //Esto se queda aqui
         @Override
-        public void actionPerformed(ActionEvent e) {
-            Login vl = new Login();
-            
-            vl.launch();
+        public Dimension getPreferredSize() {
+            Dimension size = super.getPreferredSize();
+            size.width += WW;
+            return size;
         }
-    })
-        */
-        
-        card1.add(new JButton("Carga Masiva"));
-        card1.add(new JButton("Actualizar"));
-        card1.add(new JButton("Eliminar"));
-        card1.add(new JButton("Exportar a PDF"));
-        
+    };
+    card1.setLayout(new GridLayout(2, 2));
+    card1.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+    est.addComponentToPane(card1);
+
 
 
         JPanel card2 = new JPanel();
