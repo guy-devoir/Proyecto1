@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUIs;
 
 import static GUIs.Tabs.BUTTONPANEL;
@@ -20,32 +15,43 @@ import static java.lang.System.out;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import proyecto1.Login;
 
-/**
- *
- * @author Luciano Xiquín
- */
+
 public class TabsAdmin extends Tabs implements ActionListener{
 @Override
 public void addComponentToPane(Container pane) {
     TabEst est = new TabEst();
-        JTabbedPane tabbedPane = new JTabbedPane();
+    JTabbedPane tabbedPane = new JTabbedPane();
+    
+JTable tabla = new JTable(data, columnas);
+tabla.setSize(100, 200);
+tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+tabla.setDragEnabled(false);
+tabla.setBounds(15, 15, 15, 15);
+   
+    JLabel listado = new JLabel("Listado Oficial");
 
+    listado.setLocation(5, 10);
     JPanel card1 = new JPanel() {
         //Esto se queda aqui
         @Override
         public Dimension getPreferredSize() {
             Dimension size = super.getPreferredSize();
-            size.width += WW;
+            size.width += 250;
             return size;
         }
     };
-    card1.setLayout(new GridLayout(2, 2));
-    card1.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+    card1.setLayout(new GridLayout(0, 2));
+    card1.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+    
+    card1.add(new JScrollPane(tabla), BorderLayout.WEST);
     est.addComponentToPane(card1);
 
 
@@ -76,6 +82,14 @@ public void addComponentToPane(Container pane) {
         
 }
 
+  private final String[] columnas={ "C/u", "Nombre","Precio", "precio mayor"};
+  private final Object[][] data = {
+      {1, "Leoncito", 28.0, 28.0},
+          {2, "Leoncito", 28.0, 28.0},
+          {3, "Leoncito", 28.0, 28.0},
+          {2, "Leoncito", 28.0, 28.0}
+          
+  };
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("[...]");

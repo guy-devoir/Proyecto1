@@ -67,11 +67,11 @@ public class TabEst extends Tabs{
         }else{
         auxiliar = false;
         }
+        //Aqui tengo mi problema con el Arreglo... Eso si puedieras ver el metodo tambíén, yo no soy cual será el problema
         card1.add(new JButton(new AbstractAction("Crear") {
         @Override
         public void actionPerformed(ActionEvent e) {
             nuevo_almacenar.GuardarProfesores(Integer.parseInt(codigo.getText()), nombre.getText(), apellido.getText(), correo.getText(), contraseña.getText(), auxiliar);
-        
         }}));
         
         

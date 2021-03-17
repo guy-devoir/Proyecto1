@@ -7,21 +7,22 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 public class Tabs {
-     static String BUTTONPANEL = "Profesores";
-     static String TEXTPANEL = "Cursos";
-     static String OTHERPANEL = "Alumnos";
-     static int WW = 100;
+
+    static String BUTTONPANEL = "Profesores";
+    static String TEXTPANEL = "Cursos";
+    static String OTHERPANEL = "Alumnos";
+    static int WW = 50;
     JTextField codigo = new JTextField("Ingrese sólo números");
     JTextField nombre = new JTextField();
     JTextField apellido = new JTextField();
     JTextField correo = new JTextField();
     JTextField contraseña = new JTextField();
-    
-    
+    JScrollPane scrollPane;
 
     public void addComponentToPane(Container pane) {
         JTabbedPane tabbedPane = new JTabbedPane();
@@ -38,8 +39,8 @@ public class Tabs {
         /*card1.add(new JButton("Button 1"));
         card1.add(new JButton("Button 2"));
         card1.add(new JButton("Button 3"));
-*/
-        JPanel card2 = new JPanel(){
+         */
+        JPanel card2 = new JPanel() {
             //Esto se queda aqui
             @Override
             public Dimension getPreferredSize() {
@@ -49,7 +50,7 @@ public class Tabs {
             }
         };
         //card2.add(new JTextField("TextField", 20));
-        JPanel card3 = new JPanel(){
+        JPanel card3 = new JPanel() {
             //Esto se queda aqui
             @Override
             public Dimension getPreferredSize() {
@@ -62,6 +63,6 @@ public class Tabs {
         tabbedPane.addTab(BUTTONPANEL, card1);
         tabbedPane.addTab(TEXTPANEL, card2);
         pane.add(tabbedPane, BorderLayout.CENTER);
-        
-}
+
+    }
 }
