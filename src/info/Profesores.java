@@ -2,41 +2,23 @@ package info;
 
 import proyecto1.User;
 
-public class Profesores extends User{
+public class Profesores {
+    private int codigo;
+    private String nombre;
+    private String apellido;
+    private String password;
+    private String correo;
+    private String genero;
 
-    public Profesores(int codigo, String nombre, String apellido, String correo, String contraseña, boolean genero) {
-        //codigo, nombre, apellido, correo, contraseña, genero
-        this.codigo=codigo;
-        this.Name = nombre;
-        this.Apellido = apellido;
-        this.Correo = correo;
-        this.Password = contraseña;
-        this.genero = genero;
+    public Profesores() {
     }
 
-    public void setCodigo(int codigo) {
+    public Profesores(int codigo, String nombre, String password, String apellido, String correo, String genero) {
         this.codigo = codigo;
-    }
-
-    @Override
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
-    public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
-    }
-
-    public void setCorreo(String Correo) {
-        this.Correo = Correo;
-    }
-
-    @Override
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-
-    public void setGenero(boolean genero) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.password = password;
+        this.correo = correo;
         this.genero = genero;
     }
 
@@ -44,26 +26,54 @@ public class Profesores extends User{
         return codigo;
     }
 
-    @Override
-    public String getName() {
-        return Name;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+
+    public void getPassword(String password) {
+        this.password = password;
     }
 
     public String getCorreo() {
-        return Correo;
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     @Override
-    public String getPassword() {
-        return Password;
+    public String toString() {
+        return "Profesores{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", password=" + password + ", correo=" + correo + ", genero=" + genero + '}';
     }
-
-    public boolean isGenero() {
-        return genero;
-    }
+    
     
 }

@@ -12,8 +12,8 @@ package proyecto1;
 public class Admin extends User {
 
     public Admin() {
-        Name = "Admin";
-        Password = "admin";
+        Name = "";
+        Password = "";
     }
     
 

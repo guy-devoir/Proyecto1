@@ -23,8 +23,8 @@ public class Almacenar {
     return Full;
 }
     */
-    public void GuardarProfesores(int codigo, String nombre, String apellido, String correo, String contraseña, boolean genero) {
-        Profesores entrada = new Profesores(codigo, nombre, apellido, correo, contraseña, genero);
+    public void GuardarProfesores(int codigo, String nombre, String apellido,String password, String correo,  String genero) {
+        Profesores entrada = new Profesores(codigo, nombre, apellido,password, correo, genero);
         arreglo_profesores[i] = entrada;
         i++;
     }

@@ -12,6 +12,12 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -19,6 +25,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
+
+import com.google.gson.Gson;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel; 
 
 public class TabEst extends Tabs{   
     Almacenar nuevo_almacenar = new Almacenar();
@@ -41,6 +61,46 @@ public class TabEst extends Tabs{
                 return size;
             }
         };
+        
+         /***************** CARGA Y CONVERSION A GSON ***************/
+        
+        String json = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("profesores.json"));
+                        
+        String linea;
+        while((linea = br.readLine()) != null){
+            json += linea;
+        }         
+        br.close();                               
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TabEst.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(TabEst.class.getName()).log(Level.SEVERE, null, ex);
+        }              
+        System.out.println(json);       
+        Gson gson = new Gson(); 
+        Profesores[] prof_obj = gson.fromJson(json, Profesores[].class); 
+         System.out.println(prof_obj[0].getApellido());        
+         System.out.println(prof_obj);        
+         
+        DefaultTableModel tableModel = new DefaultTableModel(); 
+                                            // The 0 argument is number rows.
+        JTable table = new JTable(tableModel);
+        table.setRowHeight(30); 
+          card1.add(table);
+        tableModel.addColumn("Código");
+        tableModel.addColumn("Nombre"); 
+        tableModel.addColumn("Apellido"); 
+        tableModel.addColumn("Correo"); 
+        tableModel.addColumn("Género");  
+        for (int i = 0; i < prof_obj.length; i++) {  
+            tableModel.insertRow(0, new Object[] { prof_obj[i].getCodigo(),prof_obj[i].getNombre(), prof_obj[i].getApellido(), prof_obj[i].getCorreo(), prof_obj[i].getGenero() }); 
+        
+        }
+      
+        /***************** FIN -- CARGA Y CONVERSION A GSON ***************/
+
         card1.setLayout(new GridLayout(0, 1));
         card1.add(new JLabel("Codigo"));
         card1.add(codigo);
@@ -55,7 +115,7 @@ public class TabEst extends Tabs{
         card1.add(correo);
 
         card1.add(new JLabel("Contraseña: "));
-        card1.add(contraseña);
+        card1.add(password);
 
         card1.add(new JLabel("Genero"));
         card1.add(male);
@@ -67,13 +127,26 @@ public class TabEst extends Tabs{
         }else{
         auxiliar = false;
         }
-        //Aqui tengo mi problema con el Arreglo... Eso si puedieras ver el metodo tambíén, yo no soy cual será el problema
+        
+        
+        
+     
+        
+               
+        
+        
+        /// TABLE //
+        
         card1.add(new JButton(new AbstractAction("Crear") {
         @Override
         public void actionPerformed(ActionEvent e) {
-            nuevo_almacenar.GuardarProfesores(Integer.parseInt(codigo.getText()), nombre.getText(), apellido.getText(), correo.getText(), contraseña.getText(), auxiliar);
+            nuevo_almacenar.GuardarProfesores(Integer.parseInt(codigo.getText()), nombre.getText(), apellido.getText(), password.getText(), correo.getText(), "1");
+        
         }}));
         
+
+
+        /********************************** PANEL 2 *************/
         
         JPanel card2 = new JPanel() {
             //Esto se queda aqui
@@ -125,6 +198,7 @@ public class TabEst extends Tabs{
         tabbedPane.addTab("Exportar", card5);
 
         pane.add(tabbedPane, BorderLayout.CENTER);
+        
         
 
     }

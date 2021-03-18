@@ -23,11 +23,9 @@ public class AdminGUI extends GUI implements ActionListener{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         out.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         out.setTitle("Admin");
-        out.add(panel, BorderLayout.NORTH);
+        out.add(panel);
         panel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
         panel.add(regresar);
-
-        
         regresar.addActionListener(this);
 
         TabsAdmin demo = new TabsAdmin();
@@ -35,10 +33,10 @@ public class AdminGUI extends GUI implements ActionListener{
         //Añadí al panel del
         demo.addComponentToPane(panel);
         
-        out.setSize(100, 50);
+        out.setSize(50, 50);
         out.pack();
         out.setVisible(true);
-
+        
         /*frame.pack();
         frame.setVisible(true);
         */
@@ -51,6 +49,7 @@ public class AdminGUI extends GUI implements ActionListener{
         login.launch();
         frame.setVisible(false);
         out.setVisible(false);
+        
     }
     
 }
