@@ -30,14 +30,17 @@ import com.google.gson.Gson;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel; 
 
 public class TabEst extends Tabs{   
@@ -157,7 +160,17 @@ public class TabEst extends Tabs{
                 return size;
             }
         };
-        card2.add(new JButton("Cargar"));
+        JTextField path = new JTextField();
+        card2.add(new JButton(new AbstractAction("Carga") {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        String fichero = path.getText();
+        
+            }
+
+        }
+
+    }));
         
         JPanel card3 = new JPanel(){
             //Esto se queda aqui
@@ -202,4 +215,5 @@ public class TabEst extends Tabs{
         
 
     }
+
 }
