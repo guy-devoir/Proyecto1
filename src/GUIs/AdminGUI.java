@@ -13,12 +13,15 @@ import java.awt.event.ActionListener;
 import javax.swing.AbstractAction;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import proyecto1.Login;
 
 public class AdminGUI extends GUI implements ActionListener{
     
     @Override
     public void launch(){
+        JScrollPane sp = new JScrollPane();
+        
         frame.setTitle("Admin");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         out.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

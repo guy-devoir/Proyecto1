@@ -33,6 +33,8 @@ public class TabsAdmin extends Tabs implements ActionListener{
 @Override
 public void addComponentToPane(Container pane) {
     TabEst est = new TabEst();
+    TabCurso cursos = new TabCurso();
+    TabAlum alumnostab = new TabAlum();
         JTabbedPane tabbedPane = new JTabbedPane();
 
     JPanel card1 = new JPanel() {
@@ -40,7 +42,7 @@ public void addComponentToPane(Container pane) {
         @Override
         public Dimension getPreferredSize() {
             Dimension size = super.getPreferredSize();
-            size.width += WW;
+            size.width += 800;
             return size;
         }
     };
@@ -51,22 +53,16 @@ public void addComponentToPane(Container pane) {
 
 
         JPanel card2 = new JPanel();
-        card2.add(new JButton("Crear"));
-        card2.add(new JButton("Carga Masiva"));
-        card2.add(new JButton("Actualizar"));
-        card2.add(new JButton("Eliminar"));
-        card2.add(new JButton("Exportar a PDF"));
+        
         card2.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         card2.setLayout(new GridLayout(2,2));
+        cursos.addComponentToPane(card2);
+        
         
         JPanel card3 = new JPanel();
-        card3.add(new JButton("Crear"));
-        card3.add(new JButton("Carga Masiva"));
-        card3.add(new JButton("Actualizar"));
-        card3.add(new JButton("Eliminar"));
-        card3.add(new JButton("Exportar a PDF"));
         card3.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         card3.setLayout(new GridLayout(2,2));
+        alumnostab.addComponentToPane(card3);
 
         tabbedPane.addTab(BUTTONPANEL, card1);
         tabbedPane.addTab(TEXTPANEL, card2);

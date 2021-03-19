@@ -74,6 +74,10 @@ public class Profesores {
     public String toString() {
         return "Profesores{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", password=" + password + ", correo=" + correo + ", genero=" + genero + '}';
     }
+
+    public Object setPassword() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

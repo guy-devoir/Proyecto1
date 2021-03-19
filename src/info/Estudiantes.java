@@ -59,5 +59,13 @@ Curso curso = new Curso();
     public boolean isGenero() {
         return genero;
     }
+
+    public Object getNombre() {
+        return Name;
+    }
+
+    public Object getGenero() {
+        return genero;
+    }
     
 }
