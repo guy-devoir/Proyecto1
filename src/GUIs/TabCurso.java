@@ -19,6 +19,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -40,6 +41,8 @@ public class TabCurso extends Tabs{
                 return size;
             }
         };
+        
+        //Pestaña 2
         JPanel card2 = new JPanel(){
             //Esto se queda aqui
             @Override
@@ -99,6 +102,8 @@ public class TabCurso extends Tabs{
         card2.add(new JLabel(""));
         card2.add(new JLabel(""));
         card2.add(new JLabel(""));
+        //Pestaña 2
+        
         //card2.add(new JTextField("TextField", 20));
         JPanel card3 = new JPanel(){
             //Esto se queda aqui
@@ -109,6 +114,11 @@ public class TabCurso extends Tabs{
                 return size;
             }
         };
+        card3.add(table);
+        JScrollPane sp = new JScrollPane();
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        table.setSize(1000, 1000);
+        card3.add(sp);
         JPanel card4 = new JPanel(){
             //Esto se queda aqui
             @Override

@@ -29,6 +29,8 @@ import javax.swing.JTabbedPane;
 import com.google.gson.Gson;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -91,10 +93,10 @@ public class TabEst extends Tabs{
         card1.add(female);
         //Botones
         String auxiliar;
-        if(male.isSelected()== true) {
+        if (male.isSelected() == true) {
             auxiliar = "m";
-        }else{
-        auxiliar = "f";
+        } else {
+            auxiliar = "f";
         }
                 
         /// TABLE //
@@ -117,12 +119,18 @@ public class TabEst extends Tabs{
     JTextField correo = new JTextField();
     JTextField password = new JTextField();
         */
+            if (tblGenero.equals("m")) {
+                male.isSelected();
+            } else {
+                female.isSelected();
+            }
+        
         codigo.setText(tblCodigo);
         nombre.setText(tblNombre);
         apellido.setText(tblApellido);
         correo.setText(tblCorreo);
         password.setText(tblContraseña);
-        
+            
         
         }}));
         card1.add(new JLabel(""));
@@ -246,6 +254,20 @@ public class TabEst extends Tabs{
         JScrollPane sp = new JScrollPane();
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setSize(1000, 1000);
+        /*
+        MOUSE LISTENER
+        */
+        table.addMouseListener(new MouseAdapter(){
+        @Override
+        public void mouseClicked (MouseEvent e){
+        int fila = table.rowAtPoint(e.getPoint());
+        int columna = table.columnAtPoint(e.getPoint());
+            if ((fila>-1)&& (columna>-1)) {
+               
+            }
+        
+        }
+        });
         card6.add(sp);
         
         tabbedPane.addTab("Crear", card1);
