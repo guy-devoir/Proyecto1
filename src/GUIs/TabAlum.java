@@ -65,7 +65,7 @@ public class TabAlum extends Tabs{
                 return size;
             }
         };
-                JTextField path = new JTextField();
+        JTextField path = new JTextField();
         
         path.setSize(10,1);
         card2.add(path);
@@ -106,7 +106,7 @@ public class TabAlum extends Tabs{
                 tableModel.addColumn("Contraseña");
                 tableModel.addColumn("Género");
                 for (int i = 0; i < obj.length; i++) {
-                    tableModel.insertRow(0, new Object[]{obj[i].getCodigo(), obj[i].getNombre(), obj[i].getApellido(), obj[i].getCorreo(), obj[i].getGenero()});
+                    tableModel.insertRow(0, new Object[]{obj[i].getCodigo(), obj[i].getNombre(), obj[i].getApellido(), obj[i].getCorreo(), "1234", obj[i].getGenero()});
 
                 }
             }
@@ -127,8 +127,8 @@ public class TabAlum extends Tabs{
             }
         };
         //card3.add(new JLabel("desu"));
-        tabbedPane.addTab(BUTTONPANEL, card1);
-        tabbedPane.addTab(TEXTPANEL, card2);
+        tabbedPane.addTab("Tabla", card1);
+        tabbedPane.addTab("Carga Masiva", card2);
         pane.add(tabbedPane, BorderLayout.CENTER);
         
 }

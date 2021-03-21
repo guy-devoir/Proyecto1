@@ -192,7 +192,7 @@ public class TabEst extends Tabs{
                 tableModel.addColumn("Contraseña");
                 tableModel.addColumn("Género");
                 for (int i = 0; i < prof_obj.length; i++) {
-                    tableModel.insertRow(0, new Object[]{prof_obj[i].getCodigo(), prof_obj[i].getNombre(), prof_obj[i].getApellido(), prof_obj[i].getCorreo(), prof_obj[i].getGenero()});
+                    tableModel.insertRow(0, new Object[]{prof_obj[i].getCodigo(), prof_obj[i].getNombre(), prof_obj[i].getApellido(), prof_obj[i].getCorreo(),"1234", prof_obj[i].getGenero()});
 
                 }
             }
