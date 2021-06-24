@@ -77,38 +77,7 @@ public class TabAlum extends Tabs{
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                String fichero = path.getText();
-                String json = "";
-                try {
-                    BufferedReader br = new BufferedReader(new FileReader(fichero));
-
-                    String linea;
-                    while ((linea = br.readLine()) != null) {
-                        json += linea;
-                    }
-                    br.close();
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(TabEst.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(TabEst.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                System.out.println(json);
-                Gson gson = new Gson();
-                Estudiantes[] obj = gson.fromJson(json, Estudiantes[].class);
-                System.out.println(obj[0].getApellido());
-                System.out.println(obj);
-
-                // The 0 argument is number rows.
-                tableModel.addColumn("Código");
-                tableModel.addColumn("Nombre");
-                tableModel.addColumn("Apellido");
-                tableModel.addColumn("Correo");
-                tableModel.addColumn("Contraseña");
-                tableModel.addColumn("Género");
-                for (int i = 0; i < obj.length; i++) {
-                    tableModel.insertRow(0, new Object[]{obj[i].getCodigo(), obj[i].getNombre(), obj[i].getApellido(), obj[i].getCorreo(), "1234", obj[i].getGenero()});
-
-                }
+                
             }
 
             /**
